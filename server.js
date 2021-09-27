@@ -1,15 +1,15 @@
-const http = require("http");
-const fs = require("fs");
+const basePath = __dirname;
+const express = require('express');
+const path = require('path');
 
-const server = http.createServer(function (req, res){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream('index.html').pipe(res)
-});
+const app = express()
+const publicDirPath = path.join(basePath, '/');
+
+app.use(express.static(publicDirPath, {extensions: ['html']}))
+
 
 PORT = 3030;
 
-server.listen(PORT,()=>{
+app.listen(PORT,()=>{
   console.log(`Server ${PORT} portund çalışıyor`)
 });
-
-
