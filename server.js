@@ -9,7 +9,7 @@ const server = http.createServer(function (req, res){
 PORT = 3030;
 
 server.listen(PORT,()=>{
-  `Server ${PORT} portund çalışıyor`
+  console.log(`Server ${PORT} portund çalışıyor`)
 });
 
 
