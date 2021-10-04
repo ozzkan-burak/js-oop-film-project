@@ -3,6 +3,7 @@ const titleElement = document.querySelector("#title");
 const directorElement = document.querySelector("#director");
 const urlElement = document.querySelector("#url");
 const cardBody = document.querySelectorAll('.card-body')[1];
+const deleteAllFilms = document.getElementById('clear-films');
 
 // UI Object Start
 const ui = new UI();
@@ -25,6 +26,8 @@ function eventListeners(){
 
   cardBody.addEventListener("click", deleteFilm);
 
+  deleteAllFilms.addEventListener("click", deleteAll);
+
 }
 
 function addfilm(e){
@@ -39,7 +42,7 @@ function addfilm(e){
 
   } else {
     ui.displayMessages("Film başarı ile eklenmiştir", "success");
-    
+
     // Create New Film
     const newFilm = new Film(title, director, url, id);
 
@@ -50,7 +53,7 @@ function addfilm(e){
   ui.clearInputs(titleElement, directorElement, urlElement);
 
   e.preventDefault();
-}
+};
 
 function deleteFilm(e) {
 
@@ -59,5 +62,14 @@ function deleteFilm(e) {
     ui.deleteFilmFromUI(e.target);
 
   }
-  
-}
+};
+
+
+function deleteAll() {
+
+  const deleteID = document.querySelector('#films');
+  ui.deleteAllFilmFromUI(deleteID);
+  ui.displayMessages("Listenizi zenginleştirin, yeni filmler ekleyin.", "warning");
+
+  storage.deleteAllFilmFromStorage();
+};
