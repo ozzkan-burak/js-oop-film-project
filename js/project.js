@@ -6,6 +6,7 @@ const urlElement = document.querySelector("#url");
 // UI Object Start
 const ui = new UI();
 
+
 // All Events Upload
 eventListeners();
 
@@ -20,11 +21,10 @@ function addfilm(e){
   const url = urlElement.value;
 
   if(title === "" || director === "" || url === ""){
-    alert("Tüm alanların doldurulması zorunludur");
-    return false;
+    ui.displayMessages("Tüm alanların doldurulması zorunludur", "danger");
 
   } else {
-
+    ui.displayMessages("Film başarı ile eklenmiştir", "success");
     // Create New Film
     const newFilm = new Film(title, director, url);
 

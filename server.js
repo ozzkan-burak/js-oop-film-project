@@ -11,5 +11,5 @@ app.use(express.static(publicDirPath, {extensions: ['html']}))
 PORT = 3030;
 
 app.listen(PORT,()=>{
-  console.log(`Server ${PORT} portund çalışıyor`)
+  console.log(`Server ${PORT} portunda çalışıyor`)
 });
