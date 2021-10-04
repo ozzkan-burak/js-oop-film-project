@@ -54,3 +54,8 @@ UI.prototype.loadAllFilms = function (films) {
     `;
   })
 }
+
+UI.prototype.deleteFilmFromUI = function(target) {
+  
+  target.parentNode.parentNode.remove();
+}
