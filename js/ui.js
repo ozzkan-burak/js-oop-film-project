@@ -65,3 +65,7 @@ UI.prototype.deleteFilmFromUI = function(target) {
   
 }
 
+UI.prototype.deleteAllFilmFromUI = function (id){
+  id.remove();
+}
+
