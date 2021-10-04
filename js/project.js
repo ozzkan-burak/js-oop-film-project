@@ -16,6 +16,11 @@ eventListeners();
 
 function eventListeners(){
   form.addEventListener("submit", addfilm);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    let films = storage.getFilmsFromStorage();
+    ui.loadAllFilms(films);
+  })
 }
 
 function addfilm(e){
