@@ -32,14 +32,16 @@ function addfilm(e){
   const title = titleElement.value;
   const director = directorElement.value;
   const url = urlElement.value;
+  const id = uuidv4();
 
   if(title === "" || director === "" || url === ""){
     ui.displayMessages("Tüm alanların doldurulması zorunludur", "danger");
 
   } else {
     ui.displayMessages("Film başarı ile eklenmiştir", "success");
+    
     // Create New Film
-    const newFilm = new Film(title, director, url);
+    const newFilm = new Film(title, director, url, id);
 
     storage.addFilmToStorage(newFilm);
     ui.addFilmToUI(newFilm); // Add film for UI
