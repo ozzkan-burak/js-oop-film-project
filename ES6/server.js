@@ -8,7 +8,7 @@ const publicDirPath = path.join(basePath, '/');
 app.use(express.static(publicDirPath, {extensions: ['html']}))
 
 
-PORT = 3030;
+PORT = 3040;
 
 app.listen(PORT,()=>{
   console.log(`Server ${PORT} portunda çalışıyor`)
