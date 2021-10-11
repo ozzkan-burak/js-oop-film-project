@@ -1,37 +1,39 @@
-function Storage() {
+class Storage {
 
-}
 
-Storage.prototype.addFilmToStorage = function(newFilm) {
-  let films = this.getFilmsFromStorage();
 
-  films.push(newFilm);
+  static addFilmToStorage (newFilm) {
+    let films = this.getFilmsFromStorage();
 
-  localStorage.setItem("films", JSON.stringify(films));
-}
+    films.push(newFilm);
 
-Storage.prototype.getFilmsFromStorage = function() {
-  let films;
-
-  if(localStorage.getItem('films') === null) {
-    films = [];
-  } else {
-    films = JSON.parse(localStorage.getItem('films'));
+    localStorage.setItem("films", JSON.stringify(films));
   }
 
-  return films;
+  static getFilmsFromStorage () {
+    let films;
+
+    if(localStorage.getItem('films') === null) {
+      films = [];
+    } else {
+      films = JSON.parse(localStorage.getItem('films'));
+    }
+
+    return films;
+  }
+
+  static deleteFilmFromStorage (id) {
+
+    const items = JSON.parse(localStorage.getItem('films'));
+
+    const filtered = items.filter(item => item.id !== id);
+
+    localStorage.setItem('films', JSON.stringify(filtered));
+
+  }
+
+  static deleteAllFilmFromStorage () {
+    localStorage.removeItem('films');
 }
 
-Storage.prototype.deleteFilmFromStorage = function(id) {
-
-  const items = JSON.parse(localStorage.getItem('films'));
-
-  const filtered = items.filter(item => item.id !== id);
-
-  localStorage.setItem('films', JSON.stringify(filtered));
-
-}
-
-Storage.prototype.deleteAllFilmFromStorage = function() {
-  localStorage.removeItem('films');
 }
