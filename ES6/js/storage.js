@@ -24,6 +24,7 @@ class Storage {
 
   static deleteFilmFromStorage (id) {
 
+    
     const items = JSON.parse(localStorage.getItem('films'));
 
     const filtered = items.filter(item => item.id !== id);
